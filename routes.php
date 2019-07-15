@@ -2,7 +2,7 @@
 
 $controllers = array(
 	'pages' => ['home' ,'error'],
-	'categories' => ['index', 'detail', 'add', 'edit', 'remove']
+	'categories' => ['index', 'detail', 'add', 'edit', 'remove' , 'getJson']
 );
 
 if (!array_key_exists($controller, $controllers) || !in_array($action, $controllers[$controller])) {

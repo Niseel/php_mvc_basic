@@ -1,4 +1,5 @@
 <?php  
+
 require_once('base_controller.php');
 require_once('models/category.php');
 
@@ -37,6 +38,14 @@ class CategoriesController extends BaseController {
 	public function remove() {
 		$categories_remove = Category::removeCategory($_GET['id']);
 		$categories_remove ? $this->render('remove', array('status' => 'Remove Success')) : $this->render('remove', array('status' => 'Remove Fail'));
+	}
+	public function getJson() {
+		$categories = Category::showAll();
+		$data = array('categories' => $categories);
+		// $string = json_encode($data);
+		// $x = explode('\,', $string);
+		echo json_encode($data);
+		//return json_encode($data);
 	}
 }
 
